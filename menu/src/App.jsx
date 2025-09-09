@@ -20,7 +20,7 @@ export default function App() {
   useEffect(() => { localStorage.setItem('lang', lang); }, [lang]);
 
   useEffect(() => {
-    fetch('/menu.json')
+    fetch(`${import.meta.env.BASE_URL}menu.json`)
       .then(r => { if (!r.ok) throw new Error('http'); return r.json(); })
       .then(setMenu)
       .catch(() => setErr('load'));
